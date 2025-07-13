@@ -1,0 +1,205 @@
+:root {
+  --primary-color: #4e89ae;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --bg-color: #f4f6f8;
+  --text-color: #333;
+  --input-bg: #fff;
+  --form-bg: #fff;
+}
+
+body.dark {
+  --primary-color: #90cdf4;
+  --success-color: #48bb78;
+  --error-color: #f56565;
+  --bg-color: #1a202c;
+  --text-color: #f7fafc;
+  --input-bg: #2d3748;
+  --form-bg: #2d3748;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* NEW: Fade+Slide form entrance */
+form {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#themeToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: color 0.3s ease, transform 0.5s ease;
+}
+
+
+#themeToggle:hover {
+  color: var(--success-color);
+}
+
+/* NEW: Dark mode toggle spins */
+#themeToggle.rotating {
+  transform: rotate(360deg);
+}
+
+form {
+  background: var(--form-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: background 0.5s ease;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+/* NEW: animated focus glow */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="date"] {
+  background: var(--input-bg);
+  color: var(--text-color);
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.5s ease,
+    color 0.5s ease;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* NEW: error shake animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+.form-group.error {
+  animation: shake 0.3s;
+}
+
+.form-group.success input {
+  border-color: var(--success-color);
+}
+
+.form-group.error input {
+  border-color: var(--error-color);
+}
+
+.form-group small {
+  color: var(--error-color);
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.4s ease,
+    max-height 0.4s ease,
+    transform 0.4s ease;
+}
+
+.form-group.error small,
+.form-group.success small {
+  visibility: visible;
+  opacity: 1;
+  max-height: 100px;
+  transform: translateY(0);
+}
+
+.form-group.success small {
+  color: var(--success-color);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  margin-left: 8px;
+}
+
+/* NEW: Button scale effect */
+button[type="submit"] {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: #3c6b8c;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 1.5rem;
+  }
+}

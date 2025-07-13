@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Form Validation App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+
+    
+    <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+    <form id="signupForm" novalidate>
+      <h1>Sign Up</h1>
+
+      <!-- all your previous form groups here -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" aria-describedby="fullNameHelp" required />
+        <small id="fullNameHelp"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" aria-describedby="emailHelp" required />
+        <small id="emailHelp"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" aria-describedby="passwordHelp" required />
+        <small id="passwordHelp"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" aria-describedby="confirmPasswordHelp" required />
+        <small id="confirmPasswordHelp"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" aria-describedby="phoneHelp" required />
+        <small id="phoneHelp"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" aria-describedby="dobHelp" required />
+        <small id="dobHelp"></small>
+      </div>
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" name="terms" aria-describedby="termsHelp" required />
+        <label for="terms">I agree to the Terms and Conditions</label>
+        <small id="termsHelp"></small>
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
